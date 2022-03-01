@@ -17,10 +17,11 @@ function showAlert(message, duration = 1000) {
     }, duration)
   }
 
-btnStart.addEventListener("click", () => {
-    let interval = 100;
 
+btnStart.addEventListener("click", () => {
+   
     var countDown = setInterval(() => {
+        let interval = parseInt(healthSpan.innerHTML);
         interval--;
 
         let healthWidth = interval / 100 * 100
@@ -35,8 +36,7 @@ btnStart.addEventListener("click", () => {
             healthBar.style.width = "0%";
             healthSpan.innerHTML = "0 HP"
 
-            showAlert("Game Over", 5000);
-
+            showAlert("Game Over" , 5000);
         }
     }, 1000);
 });

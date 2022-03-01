@@ -15350,6 +15350,9 @@ function startInteraction() {
 function stopInteraction() {
     document.removeEventListener("click", handleMouseClick)
     document.removeEventListener("keydown", handleKeyPress)
+
+    // Halt the Health Points status
+    document.removeEventListener("click", btnStart)
 }
 
 // Handles inputs from Mouse Clicks
@@ -15531,40 +15534,55 @@ function updateSolved() {
   return this.numSolved
 }
 
+// Adds health points when a letter is found or word is solved
+function addHealth(healthValue){
+  const currentHealth = parseInt(healthSpan.innerHTML)
+  healthSpan.innerHTML = currentHealth + healthValue + " HP" 
+  return 
+}
+
+// Reduces health points when word was not found
+function reduceHealth(healthValue){
+  const currentHealth = parseInt(healthSpan.innerHTML)
+  healthSpan.innerHTML = currentHealth - healthValue + " HP"
+}
+
+
 function checkWinLose (guess, tiles) {
   
   // Win condition
   if (guess === targetList[numSolved]) {
+
+    // Gain 20 HP for solved word
+    addHealth(20)
     
     const counter = document.querySelector(".counter")
-
     counter.innerHTML = updateSolved() + "/6"
-
-    console.log(numSolved)
+    
+    
     if (numSolved === NUMBER_OF_WORDS){
       showAlert("You Win", 5000) 
       danceTiles(tiles)
       stopInteraction()
     }
     else
-      clearBoard();
+      clearBoard()
 
     return
-  } // end
+  } // ---- end of win condition ----
 
-  // Lose Condition
+  // ---- Lose Condition ----
   const remainingTiles = guessGrid.querySelectorAll(":not([data-letter])")
   if (remainingTiles.length === 0){
     //Lose 20 HP
-
+    reduceHealth(20)
 
     clearBoard()
 
 
     //showAlert("Answer: " + targetWord.toUpperCase(), null)
     //stopInteraction()
-  } // end
-
+  } 
 } 
 
 function danceTiles(tiles) {
