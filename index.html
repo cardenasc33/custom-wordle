@@ -11,6 +11,7 @@
 <body>
     <div class="alert-container" data-alert-container></div>
     <div class="health-container">
+        <p>Solved: <span class="counter">0/6</span></p>
         <p>Health: <span class="health">100 HP</span></p>
         <div class="health-points">
             <div class="health-inner"></div>
@@ -18,36 +19,36 @@
         <button class="btn-start">Start</button>
     </div>
     <div data-guess-grid class="guess-grid">
-        <div class="tile"></div>
-        <div class="tile"></div>
-        <div class="tile"></div>
-        <div class="tile"></div>
-        <div class="tile"></div>
-        <div class="tile"></div>
-        <div class="tile"></div>
-        <div class="tile"></div>
-        <div class="tile"></div>
-        <div class="tile"></div>
-        <div class="tile"></div>
-        <div class="tile"></div>
-        <div class="tile"></div>
-        <div class="tile"></div>
-        <div class="tile"></div>
-        <div class="tile"></div>
-        <div class="tile"></div>
-        <div class="tile"></div>
-        <div class="tile"></div>
-        <div class="tile"></div>
-        <div class="tile"></div>
-        <div class="tile"></div>
-        <div class="tile"></div>
-        <div class="tile"></div>
-        <div class="tile"></div>
-        <div class="tile"></div>
-        <div class="tile"></div>
-        <div class="tile"></div>
-        <div class="tile"></div>
-        <div class="tile"></div>
+        <div class="tile" data-state="empty"></div>
+        <div class="tile" data-state="empty"></div>
+        <div class="tile" data-state="empty"></div>
+        <div class="tile" data-state="empty"></div>
+        <div class="tile" data-state="empty"></div>
+        <div class="tile" data-state="empty"></div>
+        <div class="tile" data-state="empty"></div>
+        <div class="tile" data-state="empty"></div>
+        <div class="tile" data-state="empty"></div>
+        <div class="tile" data-state="empty"></div>
+        <div class="tile" data-state="empty"></div>
+        <div class="tile" data-state="empty"></div>
+        <div class="tile" data-state="empty"></div>
+        <div class="tile" data-state="empty"></div>
+        <div class="tile" data-state="empty"></div>
+        <div class="tile" data-state="empty"></div>
+        <div class="tile" data-state="empty"></div>
+        <div class="tile" data-state="empty"></div>
+        <div class="tile" data-state="empty"></div>
+        <div class="tile" data-state="empty"></div>
+        <div class="tile" data-state="empty"></div>
+        <div class="tile" data-state="empty"></div>
+        <div class="tile" data-state="empty"></div>
+        <div class="tile" data-state="empty"></div>
+        <div class="tile" data-state="empty"></div>
+        <div class="tile" data-state="empty"></div>
+        <div class="tile" data-state="empty"></div>
+        <div class="tile" data-state="empty"></div>
+        <div class="tile" data-state="empty"></div>
+        <div class="tile" data-state="empty"></div>
     </div>
     <div data-keyboard class="keyboard">
         <button class="key" data-key="Q">Q</button>
@@ -85,6 +86,7 @@
             </svg>
         </button>
     </div>
+    <script src="counter.js"></script>
     <script src="health.js"></script>
 </body>
 </html>

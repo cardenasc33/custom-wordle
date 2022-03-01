@@ -15294,18 +15294,53 @@ const dictionary =
   ]
   
 const WORD_LENGTH = 5
+const NUMBER_OF_WORDS = 6
 const FLIP_ANIMATION_DURATION = 500
 const DANCE_ANIMATION_DURATION = 500
 const keyboard = document.querySelector("[data-keyboard]")
 const alertContainer = document.querySelector("[data-alert-container]")
 const guessGrid = document.querySelector("[data-guess-grid]")
-const offsetFromDate = new Date(2022, 0, 1)
-const msOffset = Date.now() - offsetFromDate
-const dayOffset = msOffset / 1000 / 60 / 60 / 24
-console.log(dayOffset)
-const targetWord = targetWords[Math.floor(dayOffset)]
+var numSolved = 0;
+
+// Gets a random word
+function getRandomWord() {
+  // get random index value
+  const randomIndex = Math.floor(Math.random() * targetWords.length)
+  const word = targetWords[randomIndex]
+
+  return word
+}
+
+
+// Used for Custom-Wordle
+// Populates an array of random target words
+function getTargetList(){
+  var targetList = new Array();
+  var start = 0;
+  while (start < NUMBER_OF_WORDS){
+    targetList.push(getRandomWord())
+    start++
+  }
+  return targetList
+}
+
+var targetList = getTargetList();
+console.log(targetList)
+
+
+
+// Used for traditional Wordle
+// Uses today's date to obtain a single target word
+function getDailyWord() {
+  const offsetFromDate = new Date(2022, 0, 1)
+  const msOffset = Date.now() - offsetFromDate
+  const dayOffset = msOffset / 1000 / 60 / 60 / 24
+  console.log(dayOffset)
+  const targetWord = targetWords[Math.floor(dayOffset)]
+}
 
 startInteraction()
+
 
 function startInteraction() {
     document.addEventListener("click", handleMouseClick)
@@ -15372,6 +15407,40 @@ function deleteKey() {
   delete lastTile.dataset.letter
 }
 
+
+// Clears board for next word
+function clearBoard() {
+  const populatedTiles = getPopulatedTiles()
+  
+  
+  // Clears the tiles
+  var start = 0 
+  while (start < populatedTiles.length){
+    const currentTile = populatedTiles[start]
+    if (currentTile == null) return
+    currentTile.textContent = ""
+    currentTile.dataset.state = "empty"
+    delete currentTile.dataset.letter
+    start = start + 1
+  }
+
+  // Clears the keyboard
+  console.log(keyboard);
+  const keys = keyboard.querySelectorAll("[data-key]");
+  console.log(keys)
+
+  start = 0
+  console.log(keys.length)
+  while (start < keys.length){
+    const currentKey = keys[start]
+    if (currentKey == null) return
+    // set to default styling
+    currentKey.className = "key"
+    start = start + 1
+  }
+
+}
+
 function submitGuess() {
   const activeTiles = [...getActiveTiles()]
   if (activeTiles.length !== WORD_LENGTH) {
@@ -15390,7 +15459,7 @@ function submitGuess() {
     return
   }
 
-  stopInteraction()
+  //stopInteraction()
   activeTiles.forEach((...params) => flipTiles(...params, guess))
 }
 
@@ -15403,10 +15472,11 @@ function flipTiles(tile, index, array, guess){
 
   tile.addEventListener("transitionend", () => {
     tile.classList.remove("flip")
-    if (targetWord[index] === letter) {
+
+    if (targetList[numSolved][index] === letter) {
       tile.dataset.state = "correct"
       key.classList.add("correct")
-    } else if (targetWord.includes(letter)){
+    } else if (targetList[numSolved].includes(letter)){
       tile.dataset.state = "wrong-location"
       key.classList.add("wrong-location")
     } else {
@@ -15425,6 +15495,10 @@ function flipTiles(tile, index, array, guess){
 
 function getActiveTiles() {
   return guessGrid.querySelectorAll('[data-state="active"]')
+}
+
+function getPopulatedTiles() {
+  return guessGrid.querySelectorAll(':not([data-state="empty"])')
 }
 
 function showAlert(message, duration = 1000) {
@@ -15451,21 +15525,47 @@ function shakeTiles(tiles) {
   })
 }
 
-function checkWinLose (guess, tiles) {
-  if (guess === targetWord) {
-    showAlert("You Win", 5000) 
-    danceTiles(tiles)
-    stopInteraction()
-    return
-  }
+// Adds to the current number of solved words
+function updateSolved() {
+  this.numSolved = this.numSolved + 1
+  return this.numSolved
+}
 
+function checkWinLose (guess, tiles) {
+  
+  // Win condition
+  if (guess === targetList[numSolved]) {
+    
+    const counter = document.querySelector(".counter")
+
+    counter.innerHTML = updateSolved() + "/6"
+
+    console.log(numSolved)
+    if (numSolved === NUMBER_OF_WORDS){
+      showAlert("You Win", 5000) 
+      danceTiles(tiles)
+      stopInteraction()
+    }
+    else
+      clearBoard();
+
+    return
+  } // end
+
+  // Lose Condition
   const remainingTiles = guessGrid.querySelectorAll(":not([data-letter])")
   if (remainingTiles.length === 0){
-    showAlert("Answer: " + targetWord.toUpperCase(), null)
-    stopInteraction()
-  }
+    //Lose 20 HP
 
-}
+
+    clearBoard()
+
+
+    //showAlert("Answer: " + targetWord.toUpperCase(), null)
+    //stopInteraction()
+  } // end
+
+} 
 
 function danceTiles(tiles) {
   tiles.forEach((tile, index) => {
