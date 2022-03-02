@@ -15572,7 +15572,7 @@ function checkWinLose (guess, tiles) {
     addHealth(20)
     
     const counter = document.querySelector(".counter")
-    counter.innerHTML = updateSolved() + "/6"
+    counter.innerHTML = updateSolved() + "/" + NUMBER_TO_SOLVE
     updateWordIndex()
     
     if (numSolved === NUMBER_TO_SOLVE){

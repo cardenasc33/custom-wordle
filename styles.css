@@ -253,6 +253,14 @@ p{
     border-radius: 3em;
 }
 
+.extra-health {
+    background: cyan;
+    position: absolute;
+    width: 0%;
+    height: 100%;
+    border-radius: 3em;
+}
+
 .btn-start{
     padding: 10px;
     width: 5em;
