@@ -15294,20 +15294,20 @@ const dictionary =
   ]
   
 const WORD_LENGTH = 5
-const NUMBER_OF_WORDS = 6
+const NUMBER_TO_SOLVE = 6
 const FLIP_ANIMATION_DURATION = 500
 const DANCE_ANIMATION_DURATION = 500
 const keyboard = document.querySelector("[data-keyboard]")
 const alertContainer = document.querySelector("[data-alert-container]")
 const guessGrid = document.querySelector("[data-guess-grid]")
-var numSolved = 0;
+var numSolved = 0
+var wordIndex = 0
+
 
 // Gets a random word
 function getRandomWord() {
-  // get random index value
   const randomIndex = Math.floor(Math.random() * targetWords.length)
   const word = targetWords[randomIndex]
-
   return word
 }
 
@@ -15317,7 +15317,7 @@ function getRandomWord() {
 function getTargetList(){
   var targetList = new Array();
   var start = 0;
-  while (start < NUMBER_OF_WORDS){
+  while (start < targetWords.length){
     targetList.push(getRandomWord())
     start++
   }
@@ -15335,7 +15335,6 @@ function getDailyWord() {
   const offsetFromDate = new Date(2022, 0, 1)
   const msOffset = Date.now() - offsetFromDate
   const dayOffset = msOffset / 1000 / 60 / 60 / 24
-  console.log(dayOffset)
   const targetWord = targetWords[Math.floor(dayOffset)]
 }
 
@@ -15428,12 +15427,9 @@ function clearBoard() {
   }
 
   // Clears the keyboard
-  console.log(keyboard);
   const keys = keyboard.querySelectorAll("[data-key]");
-  console.log(keys)
 
   start = 0
-  console.log(keys.length)
   while (start < keys.length){
     const currentKey = keys[start]
     if (currentKey == null) return
@@ -15476,10 +15472,13 @@ function flipTiles(tile, index, array, guess){
   tile.addEventListener("transitionend", () => {
     tile.classList.remove("flip")
 
-    if (targetList[numSolved][index] === letter) {
+    if (targetList[wordIndex][index] === letter) {
+      // add 1 HP for finding a letter
+      addHealth(1)
       tile.dataset.state = "correct"
       key.classList.add("correct")
-    } else if (targetList[numSolved].includes(letter)){
+    } else if (targetList[wordIndex].includes(letter)){
+      addHealth(1)
       tile.dataset.state = "wrong-location"
       key.classList.add("wrong-location")
     } else {
@@ -15528,9 +15527,25 @@ function shakeTiles(tiles) {
   })
 }
 
+//Updates the index to obtain the next word in the list
+function updateWordIndex(){
+  this.wordIndex = this.wordIndex + 1
+  return this.wordIndex
+}
+
+// Retrieves the current word index
+function getWordIndex() {
+  return this.wordIndex
+}
+
 // Adds to the current number of solved words
 function updateSolved() {
   this.numSolved = this.numSolved + 1
+  return this.numSolved
+}
+
+// Retrieves the current number of solved words
+function getSolved() {
   return this.numSolved
 }
 
@@ -15551,16 +15566,16 @@ function reduceHealth(healthValue){
 function checkWinLose (guess, tiles) {
   
   // Win condition
-  if (guess === targetList[numSolved]) {
+  if (guess === targetList[wordIndex]) {
 
     // Gain 20 HP for solved word
     addHealth(20)
     
     const counter = document.querySelector(".counter")
     counter.innerHTML = updateSolved() + "/6"
+    updateWordIndex()
     
-    
-    if (numSolved === NUMBER_OF_WORDS){
+    if (numSolved === NUMBER_TO_SOLVE){
       showAlert("You Win", 5000) 
       danceTiles(tiles)
       stopInteraction()
@@ -15576,12 +15591,12 @@ function checkWinLose (guess, tiles) {
   if (remainingTiles.length === 0){
     //Lose 20 HP
     reduceHealth(20)
-
     clearBoard()
 
-
+    updateWordIndex()
     //showAlert("Answer: " + targetWord.toUpperCase(), null)
     //stopInteraction()
+    return
   } 
 } 
 
