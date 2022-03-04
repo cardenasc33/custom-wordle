@@ -5,6 +5,7 @@
 
 body {
     background-color: hsl(240, 3%, 7%);
+    /* background-color: #001859; */
     display: flex;
     flex-direction: column;
     min-height: 100vh;
@@ -273,5 +274,83 @@ p{
     margin-bottom: 10px;
 }
 
+.modal-buttons{
+    background-color: #47a386;
+    border: 0;
+    border-radius: 5px; 
+    color: #fff;
+    padding: 10px 25px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    font-size: 14px;
+    width: 10em
+}
 
+#open{
+    background-color: #47a386;
+    border: 0;
+    border-radius: 5px; 
+    color: #fff;
+    padding: 10px 25px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    font-size: 14px;
+}
 
+#close{
+    background-color: #47a386;
+    border: 0;
+    border-radius: 5px; 
+    color: #fff;
+    padding: 10px 25px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    font-size: 14px;
+}
+
+.modal-container {
+    background-color: rgba(0, 0, 0, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    opacity: 0;
+    pointer-events: none;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+}
+
+.modal-container.show {
+    pointer-events: auto;
+    opacity: 1;
+}
+
+.modal{
+    background-color: #1996e6;
+    border-radius: 1em;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    padding: 30px 50px;
+    width: 600px;
+    max-width: 100%;
+    text-align: center;
+}
+
+.modal h1 {
+    margin: 0;
+}
+
+.modal p{
+    font-size: 18px;
+}
+
+#ready-modal-container {
+    background-color: #1996e6;
+    border-radius: 2em;
+    display: grid;
+    justify-content: center;
+    align-content: center;
+    flex-grow: 1;  /* pushes keyboard down the page */
+    grid-template-columns: repeat(5, 4em);
+    grid-template-rows: repeat(6, 4em);
+    gap: .25em;
+    margin-bottom: 1em;
+}

@@ -15300,6 +15300,12 @@ const DANCE_ANIMATION_DURATION = 500
 const keyboard = document.querySelector("[data-keyboard]")
 const alertContainer = document.querySelector("[data-alert-container]")
 const guessGrid = document.querySelector("[data-guess-grid]")
+const open = document.getElementById('open')
+const modal_container = document.getElementById('modal-container')
+const result_score = document.getElementById("result-score")
+const close = document.getElementById('close')
+const play_again = document.getElementById('play-again')
+
 var numSolved = 0
 var wordIndex = 0
 
@@ -15344,6 +15350,20 @@ startInteraction()
 function startInteraction() {
     document.addEventListener("click", handleMouseClick)
     document.addEventListener("keydown", handleKeyPress)
+   
+    // open.addEventListener("click", () => {
+    //   modal_container.classList.add('show');
+    // }); 
+
+    close.addEventListener("click", () => {
+      modal_container.classList.remove('show');
+    });
+
+    // Restart the game when "Play Again" button is clicked
+    play_again.addEventListener("click", () => { 
+      window.location.reload();
+    });
+    
 }
 
 function stopInteraction() {
@@ -15353,6 +15373,8 @@ function stopInteraction() {
     // Halt the Health Points status
     document.removeEventListener("click", btnStart)
 }
+
+
 
 // Handles inputs from Mouse Clicks
 function handleMouseClick(e) {
@@ -15576,7 +15598,10 @@ function checkWinLose (guess, tiles) {
     updateWordIndex()
     
     if (numSolved === NUMBER_TO_SOLVE){
-      showAlert("You Win", 5000) 
+      //showAlert("You Win", 5000) 
+      clearInterval(countDown)
+      result_score.innerHTML = "You scored " + counter.innerHTML
+      modal_container.classList.add('show');
       danceTiles(tiles)
       stopInteraction()
     }
