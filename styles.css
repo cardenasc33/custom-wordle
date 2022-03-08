@@ -4,8 +4,8 @@
 }
 
 body {
-    background-color: hsl(240, 3%, 7%);
-    /* background-color: #001859; */
+    /* background-color: hsl(240, 3%, 7%); */
+    background-color: black;
     display: flex;
     flex-direction: column;
     min-height: 100vh;
@@ -20,13 +20,14 @@ body {
     grid-auto-rows: 3em;
     gap: .25em;
     justify-content: center;
+    margin-bottom: 2em;
 }
 
 .key{
     font-size: inherit;
     grid-column: span 2;
     border: none;
-    padding: 0;
+    padding: 1;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -39,7 +40,7 @@ body {
     color: white;
     fill: white;
     text-transform: uppercase;
-    border-radius: .25em;
+    border-radius: 1em;
     cursor: pointer;
     user-select: none;
 }
@@ -89,13 +90,15 @@ body {
 .tile{
     font-size: 2em;
     color: white;
-    border: .05em solid hsl(240, 2%, 23%);
+    background-color: #5692e7;
+    /* border: .05em solid hsl(240, 2%, 23%); */
     text-transform: uppercase;
     font-weight: bold;
     display: flex;
     justify-content: center;
     align-items: center;
     user-select: none;
+    border-radius: .3em;
     transition: transform 250ms linear;
 }
 
@@ -343,14 +346,29 @@ p{
 }
 
 #ready-modal-container {
-    background-color: #1996e6;
+    background-color: #006cff;
     border-radius: 2em;
+    justify-content: center;
+    align-items: center;
+    width: 75vw;
+    margin: auto;
+}
+
+.ready-tile-container {
     display: grid;
     justify-content: center;
     align-content: center;
-    flex-grow: 1;  /* pushes keyboard down the page */
+    flex-grow: 1;  
     grid-template-columns: repeat(5, 4em);
-    grid-template-rows: repeat(6, 4em);
+    grid-template-rows: repeat(1, 4em);
     gap: .25em;
+    margin-top: 5em;
     margin-bottom: 1em;
+}
+
+.ready-message{
+    color: white;
+    justify-content: center;
+    align-content: center;    
+    text-align: center;
 }
