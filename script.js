@@ -15306,6 +15306,7 @@ const result_score = document.getElementById("result-score")
 const close = document.getElementById('close')
 const play_again = document.getElementById('play-again')
 
+
 var numSolved = 0
 var wordIndex = 0
 
@@ -15329,6 +15330,7 @@ function getTargetList(){
   }
   return targetList
 }
+
 
 var targetList = getTargetList();
 console.log(targetList)
