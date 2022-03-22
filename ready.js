@@ -96,7 +96,7 @@ function submitInput() {
     }
 
 
-    window.location.href = "index.html"
+    window.location.href = "game.html"
     stopInteraction()
     //activeTiles.forEach((...params) => flipTiles(...params, guess))
 }

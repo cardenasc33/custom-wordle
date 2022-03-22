@@ -5,69 +5,23 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
-    <script src="script.js" defer></script>
-    <title>Custom Wordle</title>
+    <script src="ready.js" defer></script>
+    <title>Ready Screen</title>
 </head>
 <body>
-    <div class="content">
-        <div class="alert-container" data-alert-container></div>
-        <div class="health-container">
-            <p>Solved: <span class="counter">0/6</span></p>
-            <p>Health: <span class="health">100 HP</span></p>
-            <div class="health-points">
-                <div class="health-inner"></div>
-                <div class="extra-health"></div>
-            </div>
-            <!-- <button class="btn-start">Start</button> -->
-            <!-- <button id = "open">
-                See Results
-            </button> -->
-            <div class="modal-container" id="modal-container">
-                <div class="modal">
-                    <h1 id="result-score">You Win! 🎉</h1>
-                    <p>Let's see how you do next time 😎
-                    </p>
-                    <button class="modal-buttons" id="close">
-                        CLOSE
-                    </button>
-                    <button class="modal-buttons" id="play-again">PLAY AGAIN</button>
-                </div>
-            </div>
+    <div class="alert-container" data-alert-container></div>
+    <div class="ready-modal-container" id="ready-modal-container">
+        <!-- <h2 class="ready-message">Hello!</h2> -->
+        <div data-ready-tile-container class="ready-tile-container">
+            <div class="tile" data-state="empty"></div>
+            <div class="tile" data-state="empty"></div>
+            <div class="tile" data-state="empty"></div>
+            <div class="tile" data-state="empty"></div>
+            <div class="tile" data-state="empty"></div>
         </div>
 
-        <div data-guess-grid class="guess-grid">
-            <div class="tile" data-state="empty"></div>
-            <div class="tile" data-state="empty"></div>
-            <div class="tile" data-state="empty"></div>
-            <div class="tile" data-state="empty"></div>
-            <div class="tile" data-state="empty"></div>
-            <div class="tile" data-state="empty"></div>
-            <div class="tile" data-state="empty"></div>
-            <div class="tile" data-state="empty"></div>
-            <div class="tile" data-state="empty"></div>
-            <div class="tile" data-state="empty"></div>
-            <div class="tile" data-state="empty"></div>
-            <div class="tile" data-state="empty"></div>
-            <div class="tile" data-state="empty"></div>
-            <div class="tile" data-state="empty"></div>
-            <div class="tile" data-state="empty"></div>
-            <div class="tile" data-state="empty"></div>
-            <div class="tile" data-state="empty"></div>
-            <div class="tile" data-state="empty"></div>
-            <div class="tile" data-state="empty"></div>
-            <div class="tile" data-state="empty"></div>
-            <div class="tile" data-state="empty"></div>
-            <div class="tile" data-state="empty"></div>
-            <div class="tile" data-state="empty"></div>
-            <div class="tile" data-state="empty"></div>
-            <div class="tile" data-state="empty"></div>
-            <div class="tile" data-state="empty"></div>
-            <div class="tile" data-state="empty"></div>
-            <div class="tile" data-state="empty"></div>
-            <div class="tile" data-state="empty"></div>
-            <div class="tile" data-state="empty"></div>
-        </div>
-        <div data-keyboard class="keyboard">
+        <h2 class = "ready-message">Type "READY" to start</h2>
+        <div data-keyboard class="keyboard" id="ready-modal-keyboard">
             <button class="key" data-key="Q">Q</button>
             <button class="key" data-key="W">W</button>
             <button class="key" data-key="E">E</button>
@@ -103,8 +57,8 @@
                 </svg>
             </button>
         </div>
-        <script src="counter.js"></script>
-        <script src="health.js"></script>
-    </div>
+
+    </div>    
+    
 </body>
 </html>
