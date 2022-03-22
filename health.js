@@ -21,7 +21,10 @@ function showAlert(message, duration = 1000) {
     }, duration)
   }
 
-btnStart.addEventListener("click", initiateHealth)
+//btnStart.addEventListener("click", initiateHealth)
+window.addEventListener('load', (e) => {
+    initiateHealth()
+})
 
 function initiateHealth(){
     countDown = setInterval(() => {

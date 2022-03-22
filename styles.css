@@ -5,13 +5,45 @@
 
 body {
     /* background-color: hsl(240, 3%, 7%); */
-    background-color: black;
-    display: flex;
+    /* background-color: black; */
+    background-color: #142336;
+
+    /* display: flex; */
+    /* shrink to fit */
+    /* display: inline-block;   */
+    position: relative;     /* content inside can use position: absolute */
     flex-direction: column;
-    min-height: 100vh;
     margin: 0;
-    padding: 1em;
-    font-size: clamp(.5rem, 2.5vmin, 1.5rem);
+    /* padding: 1em; */
+    /* font-size: clamp(.5rem, 2.5vmin, 1.5rem); */
+    /* overflow: clip; */
+    display: flex;
+    min-height: 100vh;
+}
+
+
+.content {
+    /* background-color: #154c79; */
+    background-color: #142336;
+    min-height: 100vh;
+    justify-content: center;
+    align-items: center;
+    /* top: 0; left: 0; right: 0; bottom: 0; */
+    /* width: 50vw; height: 50vh; */
+    margin: auto;
+    
+}
+
+.guess-grid{
+    display: grid;
+    justify-content: center;
+    align-content: center;
+    flex-grow: 1;  /* pushes keyboard down the page */
+    grid-template-columns: repeat(5, 4em);
+    grid-template-rows: repeat(6, 4em);
+    gap: .25em;
+    margin-bottom: 1em;
+    position: relative;
 }
 
 .keyboard {
@@ -21,6 +53,7 @@ body {
     gap: .25em;
     justify-content: center;
     margin-bottom: 2em;
+    position: relative;
 }
 
 .key{
@@ -76,22 +109,14 @@ body {
     --lightness: 43%
 }
 
-.guess-grid{
-    display: grid;
-    justify-content: center;
-    align-content: center;
-    flex-grow: 1;  /* pushes keyboard down the page */
-    grid-template-columns: repeat(5, 4em);
-    grid-template-rows: repeat(6, 4em);
-    gap: .25em;
-    margin-bottom: 1em;
-}
+
 
 .tile{
     font-size: 2em;
     color: white;
-    background-color: #5692e7;
-    /* border: .05em solid hsl(240, 2%, 23%); */
+    /* background-color: #5692e7; */
+    /* background-color: #7394af; */
+    border: .05em solid hsl(240, 2%, 23%);
     text-transform: uppercase;
     font-weight: bold;
     display: flex;
@@ -236,9 +261,6 @@ p{
     margin-bottom: 40px;
 }
 
-.counter{
-    
-}
 
 .health-points{
     width: 500px;
@@ -306,20 +328,19 @@ p{
     padding: 10px 25px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
     font-size: 14px;
+    margin-bottom: .5em;
 }
 
 .modal-container {
-    background-color: rgba(0, 0, 0, 0.3);
+    /* background-color: rgba(0, 0, 0, 0.3); */
     display: flex;
     align-items: center;
     justify-content: center;
     position: fixed;
     opacity: 0;
     pointer-events: none;
-    top: 0;
-    left: 0;
-    height: 100vh;
-    width: 100vw;
+    top: 0; left: 0; right: 0; bottom: 0;
+    z-index: 1;
 }
 
 .modal-container.show {
@@ -328,13 +349,15 @@ p{
 }
 
 .modal{
-    background-color: #1996e6;
+    background-color: #1e3d69;
     border-radius: 1em;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
     padding: 30px 50px;
-    width: 600px;
-    max-width: 100%;
+    width: 75%;
     text-align: center;
+    justify-content: center;
+    align-items: center;
+    max-width: 700px;    
 }
 
 .modal h1 {
@@ -346,12 +369,15 @@ p{
 }
 
 #ready-modal-container {
-    background-color: #006cff;
+    /* background-color: #006cff; */
+    /* background-color: #1e3d69; */
+    background-color: #142336;
     border-radius: 2em;
     justify-content: center;
     align-items: center;
-    width: 75vw;
+    /* width: 75%; */
     margin: auto;
+    
 }
 
 .ready-tile-container {
