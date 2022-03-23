@@ -176,3 +176,9 @@ body {
         transform: translateY(0);
     }
 }
+
+
+.logo {
+    background-color: yellow;
+    width: 100%;
+}

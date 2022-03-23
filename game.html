@@ -7,17 +7,35 @@
     <link rel="stylesheet" href="styles.css">
     <script src="script.js" defer></script>
     <title>Survivle</title>
+    <div class="logo">
+        <div class="logo-letter">S</div>
+        <div class="logo-letter">U</div>
+        <div class="logo-letter">R</div>
+        <div class="logo-letter">V</div>
+        <div class="logo-letter">I</div>
+        <div class="logo-letter">V</div>
+        <div class="logo-letter">L</div>
+        <div class="logo-letter">E</div>
+    </div>
+
 </head>
 <body>
     <div class="content">
         <div class="alert-container" data-alert-container></div>
+        <div class="stats-container">
+            
+        </div>
         <div class="health-container">
-            <p>Solved: <span class="counter">0/6</span></p>
-            <p>Health: <span class="health">100 HP</span></p>
+            <div class="stats-container">
+                <div class="health-stat">Health: <span class="health">100 HP</span></div>
+                <div class="break"></div>
+                <div class="solved-stat">Solved: <span class="counter">0/6</span></div>
+            </div>
             <div class="health-points">
                 <div class="health-inner"></div>
                 <div class="extra-health"></div>
             </div>
+        </div>
             <!-- <button class="btn-start">Start</button> -->
             <!-- <button id = "open">
                 See Results
@@ -33,7 +51,7 @@
                     <button class="modal-buttons" id="play-again">PLAY AGAIN</button>
                 </div>
             </div>
-        </div>
+        
 
         <div data-guess-grid class="guess-grid">
             <div class="tile" data-state="empty"></div>

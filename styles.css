@@ -1,3 +1,32 @@
+
+.logo {
+    background-color: #1e3d69;
+    width: 25em;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin: auto;
+    margin-top: 50px;
+    margin-bottom: 0px;
+    border-radius: .3em;
+    padding: .5em;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: white;
+    display: flex;
+    max-width: 97vw;
+    position: relative;
+    font-size: 2em;
+}
+
+.logo-letter{
+    margin: auto;
+    outline-style: solid;
+    outline-color: grey;
+    padding: .75em;
+    
+}
+
+
 *, *::after, *::before {
     box-sizing: border-box;
     font-family: Arial;
@@ -13,12 +42,14 @@ body {
     /* display: inline-block;   */
     position: relative;     /* content inside can use position: absolute */
     flex-direction: column;
-    margin: 0;
     /* padding: 1em; */
     /* font-size: clamp(.5rem, 2.5vmin, 1.5rem); */
     /* overflow: clip; */
     display: flex;
     min-height: 100vh;
+    max-height: 100vh;
+    overflow: clip;
+    display: block;
 }
 
 
@@ -116,7 +147,8 @@ body {
     color: white;
     /* background-color: #5692e7; */
     /* background-color: #7394af; */
-    border: .05em solid hsl(240, 2%, 23%);
+    /* border: .05em solid hsl(240, 2%, 23%); */
+    border: .05em solid #3a4c69;
     text-transform: uppercase;
     font-weight: bold;
     display: flex;
@@ -255,10 +287,39 @@ body {
     flex-direction: column;
 }
 
+.stats-container{
+    display: flex;
+    flex-direction: row;
+    margin-top: 2em;
+    color: white;
+}
+
+
+.health-stat{
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-bottom: 10px;
+}
+
+.break {
+    width: 200px;
+}
+
+.solved-stat{
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
 p{
     font-size: 20px;
     font-weight: bold;
     margin-bottom: 40px;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 
@@ -362,10 +423,12 @@ p{
 
 .modal h1 {
     margin: 0;
+    color: white;
 }
 
 .modal p{
     font-size: 18px;
+    color: white;
 }
 
 #ready-modal-container {
@@ -377,7 +440,7 @@ p{
     align-items: center;
     /* width: 75%; */
     margin: auto;
-    
+    margin-top: 80px;
 }
 
 .ready-tile-container {
@@ -397,4 +460,113 @@ p{
     justify-content: center;
     align-content: center;    
     text-align: center;
+}
+
+/* For extremely small screen devices (595px and below) */
+@media only screen and (max-width: 595px) {
+    .body {
+        max-width: 100vw;
+        max-height: 100vh;
+    }
+
+    .content{
+        max-width: 100vw;
+        max-height: 100vh;
+    }
+    
+    p {
+        font-size: 1em;
+        font-weight: bold;
+    }
+
+    .health-stat{
+        font-size: 1em;
+    }
+    
+    .break{
+        width: 150px;
+    }
+
+    .solved-stat{
+        font-size: 1em;
+    }
+
+   
+
+    .logo {
+        background-color: #1e3d69;
+        width: 25em;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        margin: auto;
+        margin-top: 30px;
+        margin-bottom: 0px;
+        border-radius: .3em;
+        padding: .75em;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        color: white;
+        display: flex;
+        max-width: 97vw;
+        position: relative;
+        font-size: .80em;
+    }
+    
+    .logo-letter {
+        margin: auto;
+        outline-style: solid;
+        outline-color: grey;
+        padding: .80em;
+    }
+
+    /* .health-container{
+        max-width: 250px;
+        color: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+    } */
+
+    .health-points{
+        max-width: 90vw;
+        height: 30px;
+        background: gray;
+        margin-bottom: 30px;
+        position: relative;
+        border-radius: 3em;
+        height: 25px;
+    }
+
+    .guess-grid{
+        grid-template-columns: repeat(5, 3em);
+        grid-template-rows: repeat(6, 3em);
+    }
+
+    .keyboard{
+        grid-template-columns: repeat(20, minmax(auto, 1.25em));
+        grid-auto-rows: 2em;
+    }
+    
+
+}
+
+/* Small screen devices (600px and above) */
+@media only screen and (min-width: 600px) {
+
+}
+
+/* Medium screen devices (768px and above) */
+@media only screen and (min-width: 768px) {
+
+}
+
+/* Big screen devices (889px and above) */
+@media only screen and (min-width: 889px) {
+
+}
+
+/* Extra big screen devices (1200px and above) */
+@media only screen and (min-width: 1200px) {
+
 }
