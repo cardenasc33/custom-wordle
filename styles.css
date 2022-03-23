@@ -569,7 +569,7 @@ p{
     }
 
     .keyboard{
-        grid-template-columns: repeat(20, minmax(auto, 1.10em));
+        grid-template-columns: repeat(20, minmax(auto, 1.20em));
         grid-auto-rows: 2em;
     }
     
