@@ -15306,10 +15306,13 @@ const modal_container = document.getElementById('modal-container')
 const result_score = document.getElementById("result-score")
 const close = document.getElementById('close')
 const play_again = document.getElementById('play-again')
+const share = document.getElementById('share')
 
 
 var numSolved = 0
 var wordIndex = 0
+const solvedList = []
+const missedList = []
 
 
 // Gets a random word
@@ -15322,19 +15325,30 @@ function getRandomWord() {
 
 // Used for Custom-Wordle
 // Populates an array of random target words
-function getTargetList(){
-  var targetList = new Array();
+function getRandomList(){
+  var randomList = new Array();
   var start = 0;
   while (start < targetWords.length){
-    targetList.push(getRandomWord())
+    randomList.push(getRandomWord())
     start++
   }
-  return targetList
+  return randomList
+}
+var randomList = getRandomList();
+
+//Pick number to solve words appearing first in the random list
+function getTargetList(){
+  let targetList = [];
+  for (let i = 0; i < NUMBER_TO_SOLVE; i++) {
+    targetList.push(randomList[i]);
+  }
+  return targetList;
 }
 
+let targetList = getTargetList();
 
-var targetList = getTargetList();
 console.log(targetList)
+console.log(randomList)
 
 
 
@@ -15366,6 +15380,9 @@ function startInteraction() {
     // close.addEventListener("click", () => {
     //   modal_container.classList.remove('show');
     // });
+    share.addEventListener("click", () => {
+      copyResults();
+    })
 
     // Restart the game when "Play Again" button is clicked
     play_again.addEventListener("click", () => { 
@@ -15502,12 +15519,12 @@ function flipTiles(tile, index, array, guess){
   tile.addEventListener("transitionend", () => {
     tile.classList.remove("flip")
 
-    if (targetList[wordIndex][index] === letter) {
+    if (randomList[wordIndex][index] === letter) {
       // add 1 HP for finding a letter
       addHealth(1)
       tile.dataset.state = "correct"
       key.classList.add("correct")
-    } else if (targetList[wordIndex].includes(letter)){
+    } else if (randomList[wordIndex].includes(letter)){
       addHealth(1)
       tile.dataset.state = "wrong-location"
       key.classList.add("wrong-location")
@@ -15596,17 +15613,19 @@ function reduceHealth(healthValue){
 function checkWinLose (guess, tiles) {
   
   // Win condition
-  if (guess === targetList[wordIndex]) {
+  if (guess === randomList[wordIndex]) {
 
-    // Gain 20 HP for solved word
-    addHealth(20)
-    
+    addHealth(20)   // Gain 20 HP for solved word
+    addToSolvedList(randomList[wordIndex])    
+
+    // Increase the number solved
     const counter = document.querySelector(".counter")
     counter.innerHTML = updateSolved() + "/" + NUMBER_TO_SOLVE
     updateWordIndex()
     
     if (numSolved === NUMBER_TO_SOLVE){
       //showAlert("You Win", 5000) 
+      copyResults();
       clearInterval(countDown)
       result_score.innerHTML = "You scored " + counter.innerHTML
       modal_container.classList.add('show');
@@ -15622,8 +15641,9 @@ function checkWinLose (guess, tiles) {
   // ---- Lose Condition ----
   const remainingTiles = guessGrid.querySelectorAll(":not([data-letter])")
   if (remainingTiles.length === 0){
-    //Lose 20 HP
-    reduceHealth(20)
+
+    reduceHealth(20) // Lose 20 HP
+    addToMissedList(randomList[wordIndex])
     clearBoard()
 
     updateWordIndex()
@@ -15632,6 +15652,28 @@ function checkWinLose (guess, tiles) {
     return
   } 
 } 
+
+// addToSolvedList(word) - parameter: string of word solved
+// function - add to a list of solved words
+function addToSolvedList(word) {  
+  solvedList.push(word);  
+}
+
+// addToMissedList(word) - parameter: string of word missed
+// function - add to a list of missed words
+function addToMissedList(word) {
+  missedList.push(word);
+}
+
+function copyResults() {
+  let title = "Survivle - Round " + numSolved + "/" + NUMBER_TO_SOLVE;
+  let url = "\n" + window.location.href;
+  console.log(title)
+  console.log(url)
+  console.log("\nSolved List: " + solvedList)
+  console.log("\nMissed List: " + missedList)
+}
+
 
 function danceTiles(tiles) {
   tiles.forEach((tile, index) => {

@@ -61,10 +61,18 @@ function initiateHealth(){
                 checkColors(healthWidth)
         }   
         else{
+
+            // Get the remaining unsolved words and add to the missed words list            
+            while (wordIndex < targetList.length){
+                addToMissedList(targetList[wordIndex]);
+                wordIndex++;
+            }
+
             clearInterval(countDown)
             healthBar.style.width = "0%";
             healthSpan.innerHTML = "0 HP"
 
+            printResults();
             result_score.innerHTML = "You scored " + counter.innerHTML
             modal_container.classList.add('show');
             return

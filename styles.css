@@ -448,6 +448,12 @@ p{
     color: white;
 }
 
+/*  hidden-message contains content to be copied to clipboard
+    when SHARE button is clicked */
+.hidden-message{
+    background-color: green;
+}
+
 #ready-modal-container {
     /* background-color: #006cff; */
     /* background-color: #1e3d69; */
