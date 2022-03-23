@@ -15292,7 +15292,9 @@ const dictionary =
     "rural",
     "shave"
   ]
-  
+
+
+const website = "https://survivle.app/";
 const WORD_LENGTH = 5
 const NUMBER_TO_SOLVE = 6
 const FLIP_ANIMATION_DURATION = 500
@@ -15682,7 +15684,7 @@ function updateSequence(word, flag) {
 
 function copyResults() {
   let title = "Survivle - Score " + numSolved + "/" + NUMBER_TO_SOLVE;
-  let url = "\n" + window.location.href + "\n";
+  let url = "\n" + website + "\n";
   let solved = "\nSolved: " + solvedList
   let missed = "\nMissed: " + missedList + "\n"
   let blockResult = "";
