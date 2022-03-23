@@ -72,7 +72,7 @@ function initiateHealth(){
             healthBar.style.width = "0%";
             healthSpan.innerHTML = "0 HP"
 
-            printResults();
+            copyResults();
             result_score.innerHTML = "You scored " + counter.innerHTML
             modal_container.classList.add('show');
             return
