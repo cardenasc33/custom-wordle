@@ -15363,13 +15363,13 @@ function startInteraction() {
       window.location.href = "index.html"
     });
 
-    close.addEventListener("click", () => {
-      modal_container.classList.remove('show');
-    });
+    // close.addEventListener("click", () => {
+    //   modal_container.classList.remove('show');
+    // });
 
     // Restart the game when "Play Again" button is clicked
     play_again.addEventListener("click", () => { 
-      window.location.reload();
+      window.location.href = "index.html"
     });
     
 }

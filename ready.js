@@ -1,5 +1,6 @@
 const READY = "READY"
 const WORD_LENGTH = READY.length
+const logo = document.getElementById('logo')
 const keyboard = document.querySelector("[data-keyboard]")
 const readyTiles = document.querySelector("[data-ready-tile-container]")
 const alertContainer = document.querySelector("[data-alert-container]")
@@ -13,9 +14,9 @@ function startInteraction() {
     document.addEventListener("keydown", handleKeyPress)
 
     // When logo is clicked, return to ready page
-    logo.addEventListener("click", () => {
-        window.location.href = "index.html"
-    });
+    // logo.addEventListener("click", () => {
+    //     window.location.reload();
+    // });
 }
 
 function stopInteraction() {
@@ -35,7 +36,7 @@ function handleMouseClick(e) {
         return
     }
 
-    if (e.target.matches("data-delete")){ // Pressed Delete Key
+    if (e.target.matches("[data-delete]")){ // Pressed Delete Key
         deleteKey()
         return
     }
