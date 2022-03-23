@@ -15297,6 +15297,7 @@ const WORD_LENGTH = 5
 const NUMBER_TO_SOLVE = 6
 const FLIP_ANIMATION_DURATION = 500
 const DANCE_ANIMATION_DURATION = 500
+const logo = document.getElementById('logo')
 const keyboard = document.querySelector("[data-keyboard]")
 const alertContainer = document.querySelector("[data-alert-container]")
 const guessGrid = document.querySelector("[data-guess-grid]")
@@ -15356,6 +15357,11 @@ function startInteraction() {
     // open.addEventListener("click", () => {
     //   modal_container.classList.add('show');
     // }); 
+
+    // When logo is clicked, return to ready page
+    logo.addEventListener("click", () => {
+      window.location.href = "index.html"
+    });
 
     close.addEventListener("click", () => {
       modal_container.classList.remove('show');

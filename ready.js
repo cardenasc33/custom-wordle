@@ -11,6 +11,11 @@ startInteraction()
 function startInteraction() {
     document.addEventListener("click", handleMouseClick)
     document.addEventListener("keydown", handleKeyPress)
+
+    // When logo is clicked, return to ready page
+    logo.addEventListener("click", () => {
+        window.location.href = "index.html"
+    });
 }
 
 function stopInteraction() {

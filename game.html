@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"> 
     <link rel="stylesheet" href="styles.css">
     <script src="script.js" defer></script>
     <title>Survivle</title>
-    <div class="logo">
+    <div class="logo" id="logo">
         <div class="logo-letter">S</div>
         <div class="logo-letter">U</div>
         <div class="logo-letter">R</div>
@@ -45,8 +45,11 @@
                     <h1 id="result-score">You Win! 🎉</h1>
                     <p>Let's see how you do next time 😎
                     </p>
-                    <button class="modal-buttons" id="close">
-                        CLOSE
+                    <button class="modal-buttons" id="share">
+                        SHARE
+                        <!-- <span>
+                            <img class="share-image" src="share.svg"></img>
+                        </span> -->
                     </button>
                     <button class="modal-buttons" id="play-again">PLAY AGAIN</button>
                 </div>
