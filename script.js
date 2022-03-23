@@ -15307,12 +15307,16 @@ const result_score = document.getElementById("result-score")
 const close = document.getElementById('close')
 const play_again = document.getElementById('play-again')
 const share = document.getElementById('share')
+const hidden_message = document.getElementById('hidden-message')
 
 
 var numSolved = 0
 var wordIndex = 0
 const solvedList = []
 const missedList = []
+
+const wordSequence = [] // holds the sequence of words played in the game
+const resultSequence = [] // holds the results whether solved or missed in sequence order
 
 
 // Gets a random word
@@ -15550,7 +15554,7 @@ function getPopulatedTiles() {
   return guessGrid.querySelectorAll(':not([data-state="empty"])')
 }
 
-function showAlert(message, duration = 1000) {
+function showAlert(message, duration = 2000) {
   const alert = document.createElement("div")
   alert.textContent = message
   alert.classList.add("alert")
@@ -15616,7 +15620,8 @@ function checkWinLose (guess, tiles) {
   if (guess === randomList[wordIndex]) {
 
     addHealth(20)   // Gain 20 HP for solved word
-    addToSolvedList(randomList[wordIndex])    
+    addToSolvedList(randomList[wordIndex])   
+    updateSequence(randomList[wordIndex], 1); 
 
     // Increase the number solved
     const counter = document.querySelector(".counter")
@@ -15644,6 +15649,7 @@ function checkWinLose (guess, tiles) {
 
     reduceHealth(20) // Lose 20 HP
     addToMissedList(randomList[wordIndex])
+    updateSequence(randomList[wordIndex], 2)
     clearBoard()
 
     updateWordIndex()
@@ -15665,13 +15671,41 @@ function addToMissedList(word) {
   missedList.push(word);
 }
 
+// updateSequence(word, flag) 
+// Parameters: 1st takes the current word, 
+//             2nd takes a flag of 1 - solved or 2 - missed
+// function: updates the sequence arrays used later for copyResults()
+function updateSequence(word, flag) {
+  wordSequence.push(word)
+  resultSequence.push(flag)
+}
+
 function copyResults() {
-  let title = "Survivle - Round " + numSolved + "/" + NUMBER_TO_SOLVE;
-  let url = "\n" + window.location.href;
-  console.log(title)
-  console.log(url)
-  console.log("\nSolved List: " + solvedList)
-  console.log("\nMissed List: " + missedList)
+  let title = "Survivle - Score " + numSolved + "/" + NUMBER_TO_SOLVE;
+  let url = "\n" + window.location.href + "\n";
+  let solved = "\nSolved: " + solvedList
+  let missed = "\nMissed: " + missedList + "\n"
+  let blockResult = "";
+
+  for (let i = 0; i < resultSequence.length; i++){
+    if (resultSequence[i] === 1 ){  // Add green blocks for solved
+      blockResult += "🟩🟩🟩🟩🟩\n"
+    }
+    else{
+      blockResult += "🔳🔳🔳🔳🔳\n"
+    }
+  }
+  
+  //hidden_message.innerHTML = title + url + solved + missed;
+  window.navigator.clipboard.writeText(title + url + solved + missed + blockResult)
+  .then(function() {
+      console.log('text has been copied')
+    })
+  .catch(err => {
+    console.log('Error: ', err)
+  })
+  // console.log(title + url + solved + missed)
+
 }
 
 

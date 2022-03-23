@@ -450,7 +450,7 @@ p{
 
 /*  hidden-message contains content to be copied to clipboard
     when SHARE button is clicked */
-.hidden-message{
+#hidden-message{
     background-color: green;
 }
 

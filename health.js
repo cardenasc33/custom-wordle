@@ -63,16 +63,18 @@ function initiateHealth(){
         else{
 
             // Get the remaining unsolved words and add to the missed words list            
-            while (wordIndex < targetList.length){
-                addToMissedList(targetList[wordIndex]);
-                wordIndex++;
-            }
+            // while (wordIndex < targetList.length){
+            //     addToMissedList(targetList[wordIndex]);
+            //     wordIndex++;
+            // }
+            // Time ran out, add current word to missed word list
+            updateSequence(randomList[wordIndex], 2);
+            addToMissedList(randomList[wordIndex]);
 
             clearInterval(countDown)
             healthBar.style.width = "0%";
             healthSpan.innerHTML = "0 HP"
 
-            copyResults();
             result_score.innerHTML = "You scored " + counter.innerHTML
             modal_container.classList.add('show');
             return
