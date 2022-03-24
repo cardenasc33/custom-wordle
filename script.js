@@ -15694,14 +15694,15 @@ function copyResults() {
       blockResult += "🟩🟩🟩🟩🟩\n"
     }
     else{
-      blockResult += "🔳🔳🔳🔳🔳\n"
+      blockResult += "⬛⬛⬛⬛⬛\n"
     }
   }
   
   //hidden_message.innerHTML = title + url + solved + missed;
   window.navigator.clipboard.writeText(title + url + solved + missed + blockResult)
   .then(function() {
-      console.log('text has been copied')
+      console.log('Text has been copied')
+      showAlert("Copied to Clipboard!")
     })
   .catch(err => {
     console.log('Error: ', err)
