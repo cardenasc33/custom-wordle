@@ -15632,7 +15632,6 @@ function checkWinLose (guess, tiles) {
     
     if (numSolved === NUMBER_TO_SOLVE){
       //showAlert("You Win", 5000) 
-      copyResults();
       clearInterval(countDown)
       result_score.innerHTML = "You scored " + counter.innerHTML
       modal_container.classList.add('show');
@@ -15701,8 +15700,8 @@ function copyResults() {
   //hidden_message.innerHTML = title + url + solved + missed;
   window.navigator.clipboard.writeText(title + url + solved + missed + blockResult)
   .then(function() {
-      console.log('Text has been copied')
-      showAlert("Copied to Clipboard!")
+      console.log("Copied to clipbboard")
+      share.innerHTML = "COPIED!";
     })
   .catch(err => {
     console.log('Error: ', err)
