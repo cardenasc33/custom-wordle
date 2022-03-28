@@ -32,11 +32,19 @@
     /* font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; */
 }
 
-/* .line-divider{
-    border-bottom: .1em solid #1e3d69;
+.line-divider{
+    border-bottom: .1em solid gray;
     width: 100%;
     margin-top: 10px;
-} */
+}
+
+li {
+    text-align: left;
+    color: white;
+    font-size: 15px;
+    padding-bottom: 1em;
+
+}
 
 
 body {
@@ -104,6 +112,7 @@ body {
     border-radius: .8em;
     padding-top: 10px;
     padding-bottom: 10px;   
+    cursor: pointer;
 }
 
 .close-modal{
@@ -153,6 +162,59 @@ body {
 }
 
 .about-modal p{
+    text-align: left;
+    font-weight: 500;
+    font-size: 18px;
+    color: white;
+}
+
+#twitter-section{
+    display: flex;
+    width: 125px;
+    color: white;
+    font-size: 14px;
+    font-family: inherit;
+}
+
+#twitter-logo{
+    width: 20px;
+    height: 20px;
+    margin-right: 5px;
+}
+
+
+.how-to-play-modal{
+    display: block;
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    z-index: 1;
+    background-color: #1e3d69;
+    border-radius: 1em;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    padding: 2em;
+    width: 75%;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    max-width: 500px;
+    max-height: 480px;
+    margin: auto;
+    opacity: 0;
+    pointer-events: none;
+}
+
+
+.how-to-play-modal.show{
+    pointer-events: auto;
+    opacity: 1;
+}
+
+.how-to-play-modal h3 {
+    margin-top: 0;
+    color: white;
+}
+
+.how-to-play-modal p{
     text-align: left;
     font-weight: 500;
     font-size: 18px;
@@ -664,6 +726,10 @@ p{
     }
 
     .about-modal p{
+        font-size: 14px;
+    }
+
+    .how-to-play-modal p{
         font-size: 14px;
     }
 

@@ -19,7 +19,7 @@
         <div class="logo-letter">L</div>
         <div class="logo-letter">E</div>
     </div>
-    <div class="line-divider"></div>
+    <!-- <div class="line-divider"></div> -->
 </head>
 <body>
     <div class="menu-container">
@@ -30,21 +30,83 @@
 
 
     <div class="about-modal" id="about-modal">
-        <div class="close-modal" id="close-modal">&#10006</div>
+        <div class="close-modal" id="close-about">&#10006</div>
         <h3>ABOUT</h3>
-            <p>Taking inspiration from Wordle and Squabble, Survivle tests your word solving skills while doing
+            <p style="margin-top: 25px; margin-bottom: 0;">Taking inspiration from Wordle and Squabble, Survivle tests your word solving skills while doing
                 so under time pressure.  
             </p>
 
-            <p> While you attempt to solve words, a time counter represented by health points (HP) will be
-                shown as well has a health bar.  
-                Each word is randomly pulled from a dictionary list and all the words consist of 5 letters.
+            <p style="margin-top: 15px; margin-bottom: 20px;"> Each word is randomly pulled from a dictionary list and all the words consist of 5 letters.
+                While you attempt to solve words, you battle to stay alive by healing damage when you
+                correctly guess words or letters (see " HOW TO PLAY " for more information). 
             </p>
 
-            <p>This project is still on going so stay tuned for updates!
+            <p>This project is still ongoing so stay tuned for updates!
             </p>
+
+            <div id="twitter-section"><img src="twitter.png" alt="Twitter: " id="twitter-logo"> @SurvivleApp</div>
     </div>
-    <div class="how-to-play-modal"></div>
+
+    <div class="how-to-play-modal" id="how-to-play-modal">
+        <div class="close-modal" id="close-instructions">&#10006</div>
+        <h3>HOW TO PLAY</h3>
+        <p>
+            <li>Keep guessing words until you have correctly guessed 6 of them 
+                or your health points (HP) run out!</li>
+            <li>You lose 1 HP every second and lose 20 HP when you miss a word within 6 tries.</li>
+            <li>You heal 1 HP for every letter found and 
+                heal 20 HP when you correctly guess a word.</li>
+            <li>Yellow letters indicate that the letter is in the word but in a different position.</li>
+            <li>Green letters indicate that the letter is in the correct position.</li>
+        </p>
+           
+            <!-- <p style="margin-bottom: 0">- Keep guessing words until you have correctly guessed 6 
+                of them or your health points (HP) runs out!
+            </p>
+
+            <p style="margin-bottom: 0">
+                - You take 1 damage every second.  You heal 1 HP for every letter found and 
+                20 HP when you correctly guess a word.
+            </p>
+                
+            <p style="margin-bottom: 0">
+                - Yellow letters indicate that the letter is in the word in a different position.
+            </p>
+       
+            <p style="margin-bottom: 0">
+                - Green letters indicate that the letter is in the correct position.
+            </p> -->
+
+            <!-- <div class="line-divider"></div>
+            <p style="font-weight: bold; margin-bottom: 0;">Examples</p>
+
+            <div data-ready-tile-container class="ready-tile-container" style = "font-size: 10px; margin-top: 5px;">
+                <div class="tile" data-state="empty"></div>
+                <div class="tile" data-state="empty"></div>
+                <div class="tile" data-state="empty"></div>
+                <div class="tile" data-state="empty"></div>
+                <div class="tile" data-state="empty"></div>
+            </div>
+            <p>The letter W is in the word and in the correct spot.</p>
+
+            <div data-ready-tile-container class="ready-tile-container" style = "font-size: 10px">
+                <div class="tile" data-state="empty"></div>
+                <div class="tile" data-state="empty"></div>
+                <div class="tile" data-state="empty"></div>
+                <div class="tile" data-state="empty"></div>
+                <div class="tile" data-state="empty"></div>
+            </div>
+            <p>The letter I is in the word but in the wrong spot.</p>
+
+            <div data-ready-tile-container class="ready-tile-container" style = "font-size: 10px">
+                <div class="tile" data-state="empty"></div>
+                <div class="tile" data-state="empty"></div>
+                <div class="tile" data-state="empty"></div>
+                <div class="tile" data-state="empty"></div>
+                <div class="tile" data-state="empty"></div>
+            </div>
+            <p>The letter U is not in the word in any spot.</p> -->
+    </div>
 
     
     

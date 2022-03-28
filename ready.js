@@ -6,8 +6,10 @@ const readyTiles = document.querySelector("[data-ready-tile-container]")
 const alertContainer = document.querySelector("[data-alert-container]")
 const about_button = document.getElementById('about-container')
 const about_modal = document.getElementById('about-modal')
-const close_button = document.getElementById('close-modal')
-const delete_botton = document.getElementById('delet-button')
+const instructions_button = document.getElementById('how-to-play-container')
+const instructions_modal = document.getElementById('how-to-play-modal')
+const close_about = document.getElementById('close-about') 
+const close_instructions = document.getElementById('close-instructions') 
 
 
 
@@ -27,12 +29,19 @@ function startInteraction() {
         about_modal.classList.add('show');
     });
 
+    // Opens the Instructions modal
+    instructions_button.addEventListener("click", () => {
+        instructions_modal.classList.add('show');
+    });
+
     // Closes the About modal
-    close_button.addEventListener("click", () => {
+    close_about.addEventListener("click", () => {
         about_modal.classList.remove('show');
     });
 
-    
+    close_instructions.addEventListener("click", () => {
+        instructions_modal.classList.remove('show');
+    });    
     
 }
 
