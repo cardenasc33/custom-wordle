@@ -2,6 +2,7 @@ const btnStart = document.querySelector(".btn-start");
 const healthSpan = document.querySelector(".health");
 const healthBar = document.querySelector(".health-inner");
 const extraHealthBar = document.querySelector(".extra-health")
+const counter = document.querySelector(".counter");
 const MAX_DEFAULT_HEALTH = 100
 const MAX_EXTRA_HEALTH = 200
 var countDown = 100
