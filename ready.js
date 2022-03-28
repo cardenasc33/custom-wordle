@@ -10,7 +10,8 @@ const instructions_button = document.getElementById('how-to-play-container')
 const instructions_modal = document.getElementById('how-to-play-modal')
 const close_about = document.getElementById('close-about') 
 const close_instructions = document.getElementById('close-instructions') 
-
+const twitter_section = document.getElementById('twitter-section')
+const instructions_link = document.getElementById('instructions-link')
 
 
 startInteraction()
@@ -42,7 +43,14 @@ function startInteraction() {
     close_instructions.addEventListener("click", () => {
         instructions_modal.classList.remove('show');
     });    
+
+    instructions_link.addEventListener("click", () => {
+        instructions_modal.classList.add('show');
+    });
     
+    twitter_section.addEventListener("click", () => {
+        window.location.href = "https://twitter.com/SurvivleApp";
+    });
 }
 
 function stopInteraction() {
