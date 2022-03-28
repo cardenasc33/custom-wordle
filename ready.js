@@ -4,6 +4,10 @@ const logo = document.getElementById('logo')
 const keyboard = document.querySelector("[data-keyboard]")
 const readyTiles = document.querySelector("[data-ready-tile-container]")
 const alertContainer = document.querySelector("[data-alert-container]")
+const about_button = document.getElementById('about-container')
+const about_modal = document.getElementById('about-modal')
+const close_button = document.getElementById('close-modal')
+const delete_botton = document.getElementById('delet-button')
 
 
 
@@ -17,6 +21,19 @@ function startInteraction() {
     // logo.addEventListener("click", () => {
     //     window.location.reload();
     // });
+
+    // Opens the About modal
+    about_button.addEventListener("click", () => {
+        about_modal.classList.add('show');
+    });
+
+    // Closes the About modal
+    close_button.addEventListener("click", () => {
+        about_modal.classList.remove('show');
+    });
+
+    
+    
 }
 
 function stopInteraction() {

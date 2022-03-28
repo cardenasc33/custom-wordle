@@ -23,12 +23,30 @@
 </head>
 <body>
     <div class="menu-container">
-        <div class="about-container">ABOUT</div>
-        <div class="how-to-play-container">HOW TO PLAY</div>
+        <div class="about-container" id="about-container">ABOUT</div>
+        <div class="how-to-play-container" id="how-to-play-container">HOW TO PLAY</div>
     </div>
 
-    <div class="about-modal"></div>
+
+
+    <div class="about-modal" id="about-modal">
+        <div class="close-modal" id="close-modal">&#10006</div>
+        <h3>ABOUT</h3>
+            <p>Taking inspiration from Wordle and Squabble, Survivle tests your word solving skills while doing
+                so under time pressure.  
+            </p>
+
+            <p> While you attempt to solve words, a time counter represented by health points (HP) will be
+                shown as well has a health bar.  
+                Each word is randomly pulled from a dictionary list and all the words consist of 5 letters.
+            </p>
+
+            <p>This project is still on going so stay tuned for updates!
+            </p>
+    </div>
     <div class="how-to-play-modal"></div>
+
+    
     
     <div class="alert-container" data-alert-container></div>
     <div class="ready-modal-container" id="ready-modal-container">
@@ -72,9 +90,9 @@
             <button class="key" data-key="B">B</button>
             <button class="key" data-key="N">N</button>
             <button class="key" data-key="M">M</button>
-            <button data-delete="ENTER" class="key large">
-                <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24">
-                    <path fill="var(--color-tone-1)" d="M22 3H7c-.69 0-1.23.35-1.59.88L0 12l5.41 8.11c.36.53.9.89 1.59.89h15c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H7.07L2.4 12l4.66-7H22v14zm-11.59-2L14 13.41 17.59 17 19 15.59 15.41 12 19 8.41 17.59 7 14 10.59 10.41 7 9 8.41 12.59 12 9 15.59z"></path>
+            <button data-delete="DELETE" class="key large" id="delete-button">
+                <svg data-delete="DELETE" xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24">
+                    <path data-delete="DELETE" fill="var(--color-tone-1)" d="M22 3H7c-.69 0-1.23.35-1.59.88L0 12l5.41 8.11c.36.53.9.89 1.59.89h15c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H7.07L2.4 12l4.66-7H22v14zm-11.59-2L14 13.41 17.59 17 19 15.59 15.41 12 19 8.41 17.59 7 14 10.59 10.41 7 9 8.41 12.59 12 9 15.59z"></path>
                 </svg>
             </button>
         </div>

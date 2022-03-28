@@ -15312,6 +15312,7 @@ const share = document.getElementById('share')
 const hidden_message = document.getElementById('hidden-message')
 
 
+
 var numSolved = 0
 var wordIndex = 0
 const solvedList = []
@@ -15394,6 +15395,7 @@ function startInteraction() {
     play_again.addEventListener("click", () => { 
       window.location.href = "index.html"
     });
+
     
 }
 
