@@ -23,5 +23,5 @@ Go to: https://www.survivle.app/
 
 ## Sharing Your Results:
 
-* Click the "Share" button to copy the game results to the clipboard.
+* At the end of the game, click the "Share" button to copy the game results to the clipboard.
 * Go to any text editor or chat (ex. Discord, iMessage, Twitter) that allows clipboard pasting and paste your results
