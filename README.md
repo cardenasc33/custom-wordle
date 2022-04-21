@@ -6,22 +6,13 @@
 
 ## About Survivle.app:
 
-  * Meniton everyone in the group
-    * @all
-  	* @everyone
-  	* @guys
-  * Display statistics on the group or users
-  	* @stats @{user name} {number of messages to analyze}
-  * Post gifs from Giphy
-    * @gif {search term}
-  * Automatically like messages from specified senders
-  * Automatically add specified users back when then are kicked
+  * Taking inspiration from Wordle and Squabble, Survivle tests your word solving skills while doing so under time pressure.
+  * Each word is randomly pulled from a dictionary list and all the words consist of 5 letters. While you attempt to solve words, you battle to stay alive by healing damage when you correctly guess words or letters (see " HOW TO PLAY " for more information).
 
-# Get your bot up and running
 
-## Create a GroupMe Bot:
+## How To Play:
 
-Go to: https://dev.groupme.com/session/new
+Go to: https://www.survivle.app/
 
 Use your GroupMe credentials to log into the developer site.
 
@@ -34,7 +25,7 @@ Fill out the form to create your new bot:
   * (Optional) Give your bot an avatar by providing a url to an image
   * Click submit
 
-## Set up your bot:
+## Sharing Your Results:
 
   * Clone or fork this repository
   * run `npm install`
