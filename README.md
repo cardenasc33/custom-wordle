@@ -3,7 +3,7 @@
 ## Requirements:
 
   * Web browser
-  * Javascript Enabled
+  * Javascript enabled
 
 ## About Survivle:
 
