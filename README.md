@@ -1,13 +1,10 @@
-# GroupMe bot written in Node.js
+# Survivle.app
 
 ## Requirements:
 
-  * GroupMe account
-  * Heroku account
-  * GitHub account
-  * Giphy API key
+  * Web browser
 
-## What it does:
+## About Survivle.app:
 
   * Meniton everyone in the group
     * @all
