@@ -3,6 +3,7 @@
 ## Requirements:
 
   * Web browser
+  * Javascript Enabled
 
 ## About Survivle.app:
 
