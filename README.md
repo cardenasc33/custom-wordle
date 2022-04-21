@@ -6,31 +6,24 @@
 
 ## About Survivle.app:
 
-  * Taking inspiration from Wordle and Squabble, Survivle tests your word solving skills while doing so under time pressure.
-  * Each word is randomly pulled from a dictionary list and all the words consist of 5 letters. While you attempt to solve words, you battle to stay alive by healing damage when you correctly guess words or letters (see " HOW TO PLAY " for more information).
+  Taking inspiration from Wordle and Squabble, Survivle tests your word solving skills while doing so under time pressure.
+  Each word is randomly pulled from a dictionary list and all the words consist of 5 letters. While you attempt to solve words, you battle to stay alive by healing damage when you correctly guess words or letters (see " HOW TO PLAY " for more information).
 
 
 ## How To Play:
 
 Go to: https://www.survivle.app/
 
-Use your GroupMe credentials to log into the developer site.
-
-Once you have successfully logged in, go to https://dev.groupme.com/bots/new
-
-Fill out the form to create your new bot:
-
-  * Select the group where you want the bot to live
-  * Give your bot a name
-  * (Optional) Give your bot an avatar by providing a url to an image
-  * Click submit
+* Keep guessing words until you have correctly guessed 6 of them or your health points (HP) run out!
+* You lose 1 HP every second and lose 20 HP when you miss a word within 6 tries.
+* You heal 1 HP for every letter found and heal 20 HP when you correctly guess a word.
+* Yellow letters indicate that the letter is in the word but in a different position.
+* Green letters indicate that the letter is in the correct position.
 
 ## Sharing Your Results:
 
-  * Clone or fork this repository
-  * run `npm install`
-  * Edit the `src/config.js` file with your Bot ID, Group ID, access token, and your Giphy API key
-  * Edit the `app.json` file with your bot name, logo url, and repo url
+* Click the "Share" button to copy the game results to the clipboard.
+* Go to any text editor or chat (ex. Discord, iMessage, Twitter) that allows clipboard pasting and paste your results
 
 ## Add your bot to your Heroku app:
 
