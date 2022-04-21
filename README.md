@@ -9,6 +9,8 @@
 
   Taking inspiration from Wordle and Squabble, Survivle tests your word solving skills while doing so under time pressure.
   Each word is randomly pulled from a dictionary list and all the words consist of 5 letters. While you attempt to solve words, you battle to stay alive by healing damage when you correctly guess words or letters (see " How To Play " for more information).
+  
+  This project is still ongoing to stay tuned for updates!
 
 
 ## How To Play:
