@@ -27,3 +27,8 @@ Go to: https://www.survivle.app/
 
 * At the end of the game, click the "Share" button to copy the game results to the clipboard.
 * Go to any text editor or chat (ex. Discord, iMessage, Twitter) that allows clipboard pasting and paste your results
+
+## Like this project?
+
+If you are feeling generous, you can support me through here - https://buymeacoffee.com/cardenasc3d
+
